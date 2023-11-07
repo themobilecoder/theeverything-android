@@ -1,4 +1,4 @@
-package com.themobilecoder.theeverything_android.ui.theme
+package com.themobilecoder.theeverything_android.ui.config
 
 import androidx.compose.ui.graphics.Color
 
