@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.themobilecoder.theeverything_android"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.themobilecoder.theeverything_android"
