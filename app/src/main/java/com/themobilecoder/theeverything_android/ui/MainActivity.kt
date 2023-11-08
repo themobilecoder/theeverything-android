@@ -7,7 +7,9 @@ import androidx.compose.material3.Surface
 import androidx.navigation.compose.rememberNavController
 import com.themobilecoder.theeverything_android.ui.config.TheEverythingAndroidTheme
 import com.themobilecoder.theeverything_android.ui.navigation.NavHostMain
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -22,7 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.themobilecoder.theeverything_android.ui.config.Typography
 
@@ -30,7 +30,7 @@ import com.themobilecoder.theeverything_android.ui.config.Typography
 @Composable
 fun HomeScreen(
     navController: NavController,
-    homeScreenViewModel: HomeScreenViewModel = viewModel(),
+    homeScreenViewModel: HomeScreenViewModel = hiltViewModel(),
 ) {
     LaunchedEffect(Unit) {
         homeScreenViewModel.destinationState.collect {
