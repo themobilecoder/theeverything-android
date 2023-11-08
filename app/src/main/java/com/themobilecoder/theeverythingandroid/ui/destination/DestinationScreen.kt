@@ -1,4 +1,4 @@
-package com.themobilecoder.theeverything_android.ui.destination
+package com.themobilecoder.theeverythingandroid.ui.destination
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

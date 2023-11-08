@@ -1,4 +1,4 @@
-package com.themobilecoder.theeverything_android.di
+package com.themobilecoder.theeverythingandroid.di
 
 import dagger.Module
 import dagger.hilt.InstallIn

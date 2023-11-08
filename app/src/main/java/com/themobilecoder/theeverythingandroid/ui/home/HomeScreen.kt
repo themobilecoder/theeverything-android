@@ -1,4 +1,4 @@
-package com.themobilecoder.theeverything_android.ui.home
+package com.themobilecoder.theeverythingandroid.ui.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -24,7 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.themobilecoder.theeverything_android.ui.config.Typography
+import com.themobilecoder.theeverythingandroid.ui.config.Typography
 
 
 @Composable

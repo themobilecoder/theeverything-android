@@ -1,6 +1,6 @@
 @file:Suppress("PrivatePropertyName")
 
-package com.themobilecoder.theeverything_android.ui.config
+package com.themobilecoder.theeverythingandroid.ui.config
 
 import android.app.Activity
 import android.os.Build

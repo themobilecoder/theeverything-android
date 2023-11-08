@@ -1,4 +1,4 @@
-package com.themobilecoder.theeverything_android.ui.home
+package com.themobilecoder.theeverythingandroid.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

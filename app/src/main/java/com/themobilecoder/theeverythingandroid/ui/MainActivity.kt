@@ -1,12 +1,12 @@
-package com.themobilecoder.theeverything_android.ui
+package com.themobilecoder.theeverythingandroid.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.Surface
 import androidx.navigation.compose.rememberNavController
-import com.themobilecoder.theeverything_android.ui.config.TheEverythingAndroidTheme
-import com.themobilecoder.theeverything_android.ui.navigation.NavHostMain
+import com.themobilecoder.theeverythingandroid.ui.config.TheEverythingAndroidTheme
+import com.themobilecoder.theeverythingandroid.ui.navigation.NavHostMain
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

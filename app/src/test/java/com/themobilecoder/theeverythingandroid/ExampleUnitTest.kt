@@ -1,4 +1,4 @@
-package com.themobilecoder.theeverything_android
+package com.themobilecoder.theeverythingandroid
 
 import org.junit.Test
 

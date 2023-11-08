@@ -1,4 +1,4 @@
-package com.themobilecoder.theeverything_android
+package com.themobilecoder.theeverythingandroid
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

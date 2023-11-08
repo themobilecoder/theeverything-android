@@ -1,4 +1,4 @@
-package com.themobilecoder.theeverything_android.ui.destination
+package com.themobilecoder.theeverythingandroid.ui.destination
 
 sealed class DestinationScreenUiState {
     class Init(val text: String) : DestinationScreenUiState()
