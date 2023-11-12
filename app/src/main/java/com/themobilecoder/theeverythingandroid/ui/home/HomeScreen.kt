@@ -1,5 +1,7 @@
 package com.themobilecoder.theeverythingandroid.ui.home
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,6 +13,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -24,6 +28,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.themobilecoder.theeverythingandroid.ui.config.TmcBlue
+import com.themobilecoder.theeverythingandroid.ui.config.TmcLightBlue
+import com.themobilecoder.theeverythingandroid.ui.config.TmcWhite
 import com.themobilecoder.theeverythingandroid.ui.config.Typography
 
 
@@ -35,45 +42,68 @@ fun HomeScreen(
     LaunchedEffect(Unit) {
         homeScreenViewModel.destinationState.collect {
             when (it) {
-                is HomeScreenDestinationState.Destination -> {
-                    navController.navigate("destination/${it.args}")
-                }
-
                 is HomeScreenDestinationState.Home -> {
                     navController.navigate("home")
                 }
             }
         }
     }
-    Column(
-        modifier = Modifier
-            .padding(24.dp)
-            .fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        var text by remember { mutableStateOf("") }
-        Spacer(modifier = Modifier.height(24.0.dp))
-        Text(
-            "The Everything - Android",
-            style = Typography.titleLarge,
-            fontWeight = FontWeight.Bold
-        )
-        Spacer(modifier = Modifier.height(24.0.dp))
-        OutlinedTextField(
-            value = text,
-            onValueChange = {
-                text = it
-            },
-            trailingIcon = {
-                Icon(Icons.Filled.Search, "")
-            },
-            shape = RoundedCornerShape(24.dp),
-            singleLine = true,
-            keyboardActions = KeyboardActions(
-                onDone = {
-                    homeScreenViewModel.navigateToDestination(text)
-                })
-        )
+    Scaffold(
+        containerColor = TmcBlue
+    ) { scaffoldPadding ->
+        Column(
+            modifier = Modifier
+                .padding(scaffoldPadding)
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            var text by remember { mutableStateOf("") }
+            Spacer(modifier = Modifier.height(24.0.dp))
+            Text(
+                "The Everything - Android",
+                style = Typography.titleLarge,
+                fontWeight = FontWeight.Bold
+            )
+            Spacer(modifier = Modifier.height(24.0.dp))
+            OutlinedTextField(
+                value = text,
+                onValueChange = { newText ->
+                    text = newText
+                },
+                trailingIcon = {
+                    Icon(Icons.Filled.Search, "", tint = TmcBlue)
+                },
+                shape = RoundedCornerShape(24.dp),
+                singleLine = true,
+                colors = OutlinedTextFieldDefaults.colors(
+                    unfocusedBorderColor = TmcWhite,
+                    unfocusedContainerColor = TmcWhite,
+                    focusedContainerColor = TmcWhite
+                ),
+                keyboardActions = KeyboardActions(
+                    onDone = {
+                        homeScreenViewModel.navigateToDestination(text)
+                    },
+                )
+            )
+            Spacer(modifier = Modifier.height(24.0.dp))
+            Box(
+                Modifier
+                    .background(
+                        color = TmcWhite,
+                    )
+                    .fillMaxSize()
+            ) {
+                Text(
+                    "Find a topic",
+                    modifier = Modifier
+                        .align(Alignment.Center),
+                    style = Typography.headlineSmall.copy(color = TmcLightBlue),
+                )
+            }
+
+        }
     }
+
 
 }
