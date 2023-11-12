@@ -13,6 +13,7 @@ class HomeScreenViewModel @Inject constructor() : ViewModel() {
         extraBufferCapacity = 1
     )
     val destinationState: SharedFlow<HomeScreenDestinationState> = _destinationState
-    fun navigateToDestination(arg: String) {
+    fun navigateToSnackbarDemo() {
+        _destinationState.tryEmit(HomeScreenDestinationState.SnackbarDemo)
     }
 }

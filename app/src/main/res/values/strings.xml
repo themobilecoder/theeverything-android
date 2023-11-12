@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">The Everything - Android</string>
+    <string name="title_snackbar_demo">Snackbar Demo</string>
+    <string name="find_a_topic">Find a topic</string>
 </resources>

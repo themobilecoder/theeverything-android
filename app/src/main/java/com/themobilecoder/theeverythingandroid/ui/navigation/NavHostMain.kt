@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.themobilecoder.snackbar_demo.navHostSnackbarDemo
 import com.themobilecoder.theeverythingandroid.ui.home.HomeScreen
 
 @Composable
@@ -12,10 +13,13 @@ fun NavHostMain(
 ) {
     NavHost(
         navController = navController,
-        startDestination = "home"
+        startDestination = HOME
     ) {
-        composable("home") {
+        composable(HOME) {
             HomeScreen(navController)
         }
+        navHostSnackbarDemo(navController)
     }
 }
+
+private const val HOME = "/"

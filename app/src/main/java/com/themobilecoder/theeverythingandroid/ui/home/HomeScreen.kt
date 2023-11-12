@@ -24,10 +24,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.themobilecoder.snackbar_demo.SnackbarDemoDestination
+import com.themobilecoder.theeverything_android.R
 import com.themobilecoder.theeverythingandroid.ui.config.TmcBlue
 import com.themobilecoder.theeverythingandroid.ui.config.TmcLightBlue
 import com.themobilecoder.theeverythingandroid.ui.config.TmcWhite
@@ -42,8 +45,8 @@ fun HomeScreen(
     LaunchedEffect(Unit) {
         homeScreenViewModel.destinationState.collect {
             when (it) {
-                is HomeScreenDestinationState.Home -> {
-                    navController.navigate("home")
+                is HomeScreenDestinationState.SnackbarDemo -> {
+                    navController.navigate(SnackbarDemoDestination.SNACKBAR_DEMO_ROUTE)
                 }
             }
         }
@@ -60,7 +63,7 @@ fun HomeScreen(
             var text by remember { mutableStateOf("") }
             Spacer(modifier = Modifier.height(24.0.dp))
             Text(
-                "The Everything - Android",
+                stringResource(id = R.string.app_name),
                 style = Typography.titleLarge,
                 fontWeight = FontWeight.Bold
             )
@@ -82,7 +85,7 @@ fun HomeScreen(
                 ),
                 keyboardActions = KeyboardActions(
                     onDone = {
-                        homeScreenViewModel.navigateToDestination(text)
+                        homeScreenViewModel.navigateToSnackbarDemo()
                     },
                 )
             )
@@ -95,7 +98,7 @@ fun HomeScreen(
                     .fillMaxSize()
             ) {
                 Text(
-                    "Find a topic",
+                    stringResource(id = R.string.find_a_topic),
                     modifier = Modifier
                         .align(Alignment.Center),
                     style = Typography.headlineSmall.copy(color = TmcLightBlue),
