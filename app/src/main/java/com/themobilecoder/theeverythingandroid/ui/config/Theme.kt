@@ -25,10 +25,15 @@ private val DarkColorScheme = darkColorScheme(
 
 private val LightColorScheme = lightColorScheme(
     primary = TmcBlue,
+    onPrimary = TmcWhite,
     secondary = TmcLightBlue,
     tertiary = TmcWhiteBlue,
     surface = TmcWhite,
     background = TmcWhite,
+    primaryContainer = TmcBlue,
+    secondaryContainer = TmcLightBlue,
+    onSecondary = TmcWhite,
+    surfaceTint = TmcWhiteBlue
 )
 
 @Composable

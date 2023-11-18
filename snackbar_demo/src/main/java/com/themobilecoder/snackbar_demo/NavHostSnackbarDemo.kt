@@ -11,7 +11,11 @@ fun NavGraphBuilder.navHostSnackbarDemo(
 ) {
     navigation(route = SNACKBAR_DEMO_ROUTE, startDestination = SNACKBAR_DEMO_HOME) {
         composable(SNACKBAR_DEMO_HOME) {
-            SnackbarDemoScreen()
+            SnackbarDemoScreen(
+                onBackButtonPressed = {
+                    navController.navigateUp()
+                }
+            )
         }
     }
 }
