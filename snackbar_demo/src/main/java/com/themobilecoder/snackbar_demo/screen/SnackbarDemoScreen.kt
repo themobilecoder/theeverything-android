@@ -29,11 +29,13 @@ import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import kotlinx.coroutines.launch
 
 @Composable
 internal fun SnackbarDemoScreen(
@@ -114,30 +116,35 @@ internal fun SnackbarDemoScreen(
             )
         }
     }
+    val scope = rememberCoroutineScope()
     LaunchedEffect(Unit) {
         viewModel.snackbarSharedFlow.collect { type ->
             snackbarHostState.currentSnackbarData?.dismiss()
 
             when (type) {
                 SnackbarType.STANDARD_SNACKBAR -> {
-                    snackbarHostState.showSnackbar(
-                        message = "Standard snackbar",
-                        duration = SnackbarDuration.Short
-                    )
+                    scope.launch {
+                        snackbarHostState.showSnackbar(
+                            message = "Standard snackbar",
+                            duration = SnackbarDuration.Short
+                        )
+                    }
                 }
 
                 SnackbarType.SNACKBAR_WITH_BUTTON -> {
-                    val result = snackbarHostState.showSnackbar(
-                        message = "Snackbar with Button",
-                        duration = SnackbarDuration.Short,
-                        actionLabel = "Dismiss"
-                    )
-                    when (result) {
-                        SnackbarResult.ActionPerformed -> {
-                            snackbarHostState.currentSnackbarData?.dismiss()
-                        }
+                    scope.launch {
+                        val result = snackbarHostState.showSnackbar(
+                            message = "Snackbar with Button",
+                            duration = SnackbarDuration.Short,
+                            actionLabel = "Dismiss"
+                        )
+                        when (result) {
+                            SnackbarResult.ActionPerformed -> {
+                                snackbarHostState.currentSnackbarData?.dismiss()
+                            }
 
-                        else -> {}
+                            else -> {}
+                        }
                     }
                 }
             }
