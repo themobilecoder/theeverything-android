@@ -1,14 +1,14 @@
 package com.themobilecoder.theeverythingandroid.ui.home
 
-import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
@@ -18,6 +18,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -29,10 +30,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.themobilecoder.snackbar_demo.SnackbarDemoDestination
 import com.themobilecoder.theeverything_android.R
 import com.themobilecoder.theeverythingandroid.ui.config.TmcBlue
-import com.themobilecoder.theeverythingandroid.ui.config.TmcLightBlue
 import com.themobilecoder.theeverythingandroid.ui.config.TmcWhite
 import com.themobilecoder.theeverythingandroid.ui.config.Typography
 
@@ -42,18 +41,13 @@ fun HomeScreen(
     navController: NavController,
     homeScreenViewModel: HomeScreenViewModel = hiltViewModel(),
 ) {
+    val destinations = homeScreenViewModel.uiState.collectAsState().value.destinations
     LaunchedEffect(Unit) {
-        homeScreenViewModel.destinationState.collect {
-            when (it) {
-                is HomeScreenDestinationState.SnackbarDemo -> {
-                    navController.navigate(SnackbarDemoDestination.SNACKBAR_DEMO_ROUTE)
-                }
-            }
+        homeScreenViewModel.destinationState.collect { destinationRoute ->
+            navController.navigate(destinationRoute)
         }
     }
-    Scaffold(
-        containerColor = TmcBlue
-    ) { scaffoldPadding ->
+    Scaffold { scaffoldPadding ->
         Column(
             modifier = Modifier
                 .padding(scaffoldPadding)
@@ -79,30 +73,39 @@ fun HomeScreen(
                 shape = RoundedCornerShape(24.dp),
                 singleLine = true,
                 colors = OutlinedTextFieldDefaults.colors(
-                    unfocusedBorderColor = TmcWhite,
                     unfocusedContainerColor = TmcWhite,
-                    focusedContainerColor = TmcWhite
                 ),
-                keyboardActions = KeyboardActions(
-                    onDone = {
-                        homeScreenViewModel.navigateToSnackbarDemo()
-                    },
-                )
             )
-            Spacer(modifier = Modifier.height(24.0.dp))
-            Box(
-                Modifier
-                    .background(
-                        color = TmcWhite,
-                    )
-                    .fillMaxSize()
+            Spacer(modifier = Modifier.height(32.0.dp))
+            LazyColumn(
+                Modifier.fillMaxSize(),
             ) {
-                Text(
-                    stringResource(id = R.string.find_a_topic),
-                    modifier = Modifier
-                        .align(Alignment.Center),
-                    style = Typography.headlineSmall.copy(color = TmcLightBlue),
-                )
+                items(destinations.size) { index ->
+                    val featureData = destinations[index].featureData
+                    Box(
+                        Modifier
+                            .fillMaxSize()
+                            .clickable {
+                                homeScreenViewModel.navigateToFeature(featureData.destination)
+                            }
+                    ) {
+                        Column(
+                            Modifier.padding(horizontal = 24.dp)
+                        ) {
+                            Text(
+                                modifier = Modifier.padding(vertical = 8.dp),
+                                text = featureData.title,
+                                style = Typography.titleMedium
+                            )
+                            Text(
+                                modifier = Modifier.padding(bottom = 4.dp),
+                                text = featureData.description,
+                                style = Typography.bodyMedium
+                            )
+                            Spacer(Modifier.height(12.dp))
+                        }
+                    }
+                }
             }
 
         }

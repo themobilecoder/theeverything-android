@@ -1,19 +1,37 @@
 package com.themobilecoder.theeverythingandroid.ui.home
 
 import androidx.lifecycle.ViewModel
+import com.themobilecoder.snackbar_demo.FeatureMetadata
+import com.themobilecoder.snackbar_demo.SnackbarFeatureMetadata
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeScreenViewModel @Inject constructor() : ViewModel() {
 
-    private val _destinationState = MutableSharedFlow<HomeScreenDestinationState>(
+    private val _destinationState = MutableSharedFlow<String>(
         extraBufferCapacity = 1
     )
-    val destinationState: SharedFlow<HomeScreenDestinationState> = _destinationState
-    fun navigateToSnackbarDemo() {
-        _destinationState.tryEmit(HomeScreenDestinationState.SnackbarDemo)
+    val destinationState: SharedFlow<String> = _destinationState
+
+    private val _uiState = MutableStateFlow(
+        HomeScreenUiState(
+            destinations = listOf(
+                SnackbarFeatureMetadata,
+            )
+        )
+    )
+    val uiState: StateFlow<HomeScreenUiState> = _uiState
+
+    fun navigateToFeature(destinationRoute: String) {
+        _destinationState.tryEmit(destinationRoute)
     }
+
+    data class HomeScreenUiState(
+        val destinations: List<FeatureMetadata>
+    )
 }

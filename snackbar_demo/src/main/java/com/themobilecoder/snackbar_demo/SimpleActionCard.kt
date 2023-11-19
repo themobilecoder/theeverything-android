@@ -34,7 +34,7 @@ fun SimpleActionCard(
     ) {
         Column(
             modifier = Modifier
-                .padding(12.dp)
+                .padding(16.dp)
                 .fillMaxWidth(),
         ) {
             Text(
@@ -43,7 +43,7 @@ fun SimpleActionCard(
             )
             Spacer(Modifier.height(8.dp))
             Text(description)
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(18.dp))
             FilledTonalButton(
                 modifier = Modifier.align(Alignment.End),
                 colors = ButtonDefaults.buttonColors(
