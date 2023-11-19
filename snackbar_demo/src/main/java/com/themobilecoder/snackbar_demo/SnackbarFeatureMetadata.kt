@@ -13,8 +13,8 @@ object SnackbarFeatureMetadata : FeatureMetadata {
         )
 }
 
-const val SNACKBAR_DEMO_HOME = "/"
+internal const val SNACKBAR_DEMO_HOME = "/"
 
-object SnackbarDemoDestination {
+internal object SnackbarDemoDestination {
     const val SNACKBAR_DEMO_ROUTE = "snackbarDemo"
 }

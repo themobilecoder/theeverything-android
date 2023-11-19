@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.themobilecoder.snackbar_demo
+package com.themobilecoder.snackbar_demo.screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -36,7 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
-fun SnackbarDemoScreen(
+internal fun SnackbarDemoScreen(
     onBackButtonPressed: () -> Unit,
     viewModel: SnackbarDemoScreenViewModel = hiltViewModel(),
 ) {

@@ -1,4 +1,4 @@
-package com.themobilecoder.snackbar_demo
+package com.themobilecoder.snackbar_demo.screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -39,7 +39,7 @@ fun SimpleActionCard(
         ) {
             Text(
                 title,
-                style = MaterialTheme.typography.headlineMedium
+                style = MaterialTheme.typography.headlineSmall
             )
             Spacer(Modifier.height(8.dp))
             Text(description)
