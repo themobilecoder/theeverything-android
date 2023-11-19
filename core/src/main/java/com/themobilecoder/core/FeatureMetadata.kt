@@ -1,4 +1,4 @@
-package com.themobilecoder.snackbar_demo
+package com.themobilecoder.core
 
 interface FeatureMetadata {
     data class FeatureData(

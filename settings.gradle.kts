@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "The Everything - Android"
 include(":app")
 include(":snackbar_demo")
+include(":core")

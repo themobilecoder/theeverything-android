@@ -1,5 +1,6 @@
 package com.themobilecoder.snackbar_demo
 
+import com.themobilecoder.core.FeatureMetadata
 import com.themobilecoder.snackbar_demo.SnackbarDemoDestination.SNACKBAR_DEMO_ROUTE
 
 

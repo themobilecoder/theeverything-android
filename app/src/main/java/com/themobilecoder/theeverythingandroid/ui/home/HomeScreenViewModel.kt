@@ -1,7 +1,7 @@
 package com.themobilecoder.theeverythingandroid.ui.home
 
 import androidx.lifecycle.ViewModel
-import com.themobilecoder.snackbar_demo.FeatureMetadata
+import com.themobilecoder.core.FeatureMetadata
 import com.themobilecoder.snackbar_demo.SnackbarFeatureMetadata
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow

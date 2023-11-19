@@ -67,6 +67,7 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
 
     //Modules:
+    implementation(project(":core"))
     implementation(project(":snackbar_demo"))
 
 }

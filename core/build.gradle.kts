@@ -1,17 +1,17 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.hilt.android)
-
-    kotlin("kapt")
 }
+
 android {
-    namespace = "com.themobilecoder.snackbar_demo"
-    compileSdk = 34
+    namespace = "com.themobilecoder.core"
+    compileSdk = 33
 
     defaultConfig {
         minSdk = 24
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -30,31 +30,14 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
-    }
 }
 
 dependencies {
-    implementation(libs.bundles.androidx.core)
-    implementation(libs.bundles.androidx.compose)
-    implementation(project(":core"))
 
+    implementation(libs.androidx.core.core.ktx)
+    implementation(libs.appcompat)
+    implementation(libs.material)
     testImplementation(libs.junit.junit)
-    androidTestImplementation(libs.bundles.androidx.ui.test)
-
-    debugImplementation(libs.bundles.androidx.compose.tooling)
-
-    //Hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
-    implementation(libs.hilt.navigation.compose)
-
-}
-
-kapt {
-    correctErrorTypes = true
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.espresso.espresso.core)
 }
