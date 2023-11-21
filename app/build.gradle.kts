@@ -43,7 +43,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = libs.versions.kotlin.compiler.extension.get()
     }
     packaging {
         resources {
@@ -69,6 +69,7 @@ dependencies {
     //Modules:
     implementation(project(":core"))
     implementation(project(":snackbar_demo"))
+    implementation(project(":tab_demo"))
 
 }
 

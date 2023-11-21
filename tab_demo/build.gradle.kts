@@ -5,13 +5,16 @@ plugins {
 
     kotlin("kapt")
 }
+
 android {
-    namespace = "com.themobilecoder.snackbar_demo"
-    compileSdk = 34
+    namespace = "com.themobilecoder.tab_demo"
+    compileSdk = 33
 
     defaultConfig {
         minSdk = 24
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -52,7 +55,6 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
     implementation(libs.hilt.navigation.compose)
-
 }
 
 kapt {

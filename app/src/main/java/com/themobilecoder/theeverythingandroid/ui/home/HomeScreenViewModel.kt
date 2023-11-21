@@ -3,6 +3,7 @@ package com.themobilecoder.theeverythingandroid.ui.home
 import androidx.lifecycle.ViewModel
 import com.themobilecoder.core.FeatureMetadata
 import com.themobilecoder.snackbar_demo.SnackbarFeatureMetadata
+import com.themobilecoder.tab_demo.TabFeatureMetaData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,6 +23,7 @@ class HomeScreenViewModel @Inject constructor() : ViewModel() {
         HomeScreenUiState(
             destinations = listOf(
                 SnackbarFeatureMetadata,
+                TabFeatureMetaData
             )
         )
     )
