@@ -30,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.themobilecoder.core.FeatureMetadata
 import com.themobilecoder.theeverything_android.R
 import com.themobilecoder.theeverythingandroid.ui.config.TmcBlue
 import com.themobilecoder.theeverythingandroid.ui.config.TmcWhite
@@ -41,7 +42,6 @@ fun HomeScreen(
     navController: NavController,
     homeScreenViewModel: HomeScreenViewModel = hiltViewModel(),
 ) {
-    val destinations = homeScreenViewModel.uiState.collectAsState().value.destinations
     LaunchedEffect(Unit) {
         homeScreenViewModel.destinationState.collect { destinationRoute ->
             navController.navigate(destinationRoute)
@@ -55,6 +55,8 @@ fun HomeScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             var text by remember { mutableStateOf("") }
+            val destinations = homeScreenViewModel.uiState.collectAsState().value.destinations
+            val filteredDestinations = destinations.filter(containedInFeatureMetadata(text))
             Spacer(modifier = Modifier.height(24.0.dp))
             Text(
                 stringResource(id = R.string.app_name),
@@ -80,8 +82,8 @@ fun HomeScreen(
             LazyColumn(
                 Modifier.fillMaxSize(),
             ) {
-                items(destinations.size) { index ->
-                    val featureData = destinations[index].featureData
+                items(filteredDestinations.size) { index ->
+                    val featureData = filteredDestinations[index].featureData
                     Box(
                         Modifier
                             .fillMaxSize()
@@ -113,3 +115,12 @@ fun HomeScreen(
 
 
 }
+
+@Composable
+private fun containedInFeatureMetadata(text: String): (FeatureMetadata) -> Boolean =
+    {
+        val trimmedText = text.trim()
+        it.featureData.title.contains(trimmedText, ignoreCase = true) ||
+                it.featureData.description.contains(trimmedText, ignoreCase = true) ||
+                trimmedText.isBlank()
+    }
