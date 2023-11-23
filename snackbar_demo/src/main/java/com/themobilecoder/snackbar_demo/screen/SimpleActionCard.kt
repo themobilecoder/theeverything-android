@@ -46,10 +46,10 @@ fun SimpleActionCard(
             Spacer(Modifier.height(18.dp))
             FilledTonalButton(
                 modifier = Modifier.align(Alignment.End),
+                onClick = onActionButtonClicked,
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.secondary
-                ),
-                onClick = onActionButtonClicked
+                    containerColor = MaterialTheme.colorScheme.primary
+                )
             ) {
                 Text(actionButtonText)
             }

@@ -13,7 +13,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,8 +31,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.themobilecoder.core.FeatureMetadata
 import com.themobilecoder.theeverything_android.R
-import com.themobilecoder.theeverythingandroid.ui.config.TmcBlue
-import com.themobilecoder.theeverythingandroid.ui.config.TmcWhite
 import com.themobilecoder.theeverythingandroid.ui.config.Typography
 
 
@@ -70,13 +67,10 @@ fun HomeScreen(
                     text = newText
                 },
                 trailingIcon = {
-                    Icon(Icons.Filled.Search, "", tint = TmcBlue)
+                    Icon(Icons.Filled.Search, "")
                 },
                 shape = RoundedCornerShape(24.dp),
                 singleLine = true,
-                colors = OutlinedTextFieldDefaults.colors(
-                    unfocusedContainerColor = TmcWhite,
-                ),
             )
             Spacer(modifier = Modifier.height(32.0.dp))
             LazyColumn(

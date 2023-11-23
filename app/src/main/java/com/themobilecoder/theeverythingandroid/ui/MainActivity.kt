@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-            TheEverythingAndroidTheme(dynamicColor = false) {
+            TheEverythingAndroidTheme {
                 Surface {
                     NavHostMain(navController = navController)
                 }
