@@ -7,7 +7,7 @@ plugins {
 }
 android {
     namespace = "com.themobilecoder.snackbar_demo"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24

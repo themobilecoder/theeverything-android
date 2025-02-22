@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.themobilecoder.tab_demo"
-    compileSdk = 33
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24

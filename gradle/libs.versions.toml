@@ -1,20 +1,23 @@
 [versions]
-androidCoreKotlin = "1.12.0"
-androidLifecycleRuntimeKotlin = "2.6.2"
-androidActivityCompose = "1.8.0"
-androidComposeBom = "2023.10.01"
-navigationCompose = "2.7.5"
-androidGradle = "8.1.2"
-jetbrainsKotlinAndroid = "1.8.10"
-hiltPlugin = "2.44"
-material3 = "1.1.2"
-hilt-android = "2.48"
-hilt-android-compiler = "2.44"
-hilt-navigation-compose = "1.1.0"
+androidCoreKotlin = "1.15.0"
+androidLifecycleRuntimeKotlin = "2.8.7"
+androidActivityCompose = "1.10.0"
+androidComposeBom = "2025.02.00"
+navigationCompose = "2.8.7"
+androidGradle = "8.2.2"
+jetbrainsKotlinAndroid = "1.9.0"
+hiltPlugin = "2.55"
+material3 = "1.3.1"
+hilt-android = "2.55"
+hilt-android-compiler = "2.55"
+hilt-navigation-compose = "1.2.0"
 junit = "4.13.2"
-appcompat = "1.6.1"
-material = "1.8.0"
-kotlin-compiler-extension = "1.4.3"
+appcompat = "1.7.0"
+material = "1.12.0"
+kotlin-compiler-extension = "1.5.0"
+android-test-ext-junit = "1.2.1"
+androidTestEspressoCore = "3.6.1"
+androidComposeUiTestJunit4 = "1.7.8"
 
 [libraries]
 androidx-core-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidCoreKotlin"}
@@ -29,9 +32,9 @@ androidx-navigation-navigation-compose = { group = "androidx.navigation", name =
 androidx-compose-ui-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling"}
 androidx-compose-ui-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest"}
 junit-junit = { group = "junit", name = "junit", version.ref = "junit"}
-androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version = "1.1.5"}
-androidx-test-espresso-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version = "3.5.1"}
-androidx-compose-ui-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4", version = "1.5.4"}
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "android-test-ext-junit"}
+androidx-test-espresso-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidTestEspressoCore"}
+androidx-compose-ui-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "androidComposeUiTestJunit4"}
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt-android" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt-android-compiler" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation-compose" }

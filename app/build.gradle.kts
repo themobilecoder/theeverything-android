@@ -8,12 +8,11 @@ plugins {
 
 android {
     namespace = "com.themobilecoder.theeverything_android"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.themobilecoder.theeverything_android"
         minSdk = 24
-        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
