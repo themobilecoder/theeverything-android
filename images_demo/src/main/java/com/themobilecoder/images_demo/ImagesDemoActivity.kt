@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
-import com.themobilecoder.images_demo.ui.theme.TheEverythingAndroidTheme
+import com.themobilecoder.images_demo.ui.theme.ImagesDemoTheme
 
 class ImagesDemoActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +13,7 @@ class ImagesDemoActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val navController = rememberNavController()
-            TheEverythingAndroidTheme {
+            ImagesDemoTheme {
                 ImagesDemoActivityNavGraph(
                     navController = navController,
                     onFinish = { finish() }

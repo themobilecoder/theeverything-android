@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
-import com.themobilecoder.snackbar_demo.ui.theme.TheEverythingAndroidTheme
+import com.themobilecoder.snackbar_demo.ui.theme.SnackbarDemoTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,7 +15,7 @@ class SnackbarDemoActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val navHostController = rememberNavController()
-            TheEverythingAndroidTheme {
+            SnackbarDemoTheme {
                 SnackbarDemoActivityNavGraph(
                     navController = navHostController,
                     onToolbarBackButtonClicked = { finish() }

@@ -10,14 +10,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.themobilecoder.tab_demo.navigation.TabDemoActivityNavGraph
-import com.themobilecoder.tab_demo.ui.theme.TheEverythingAndroidTheme
+import com.themobilecoder.tab_demo.ui.theme.TabDemoTheme
 
 class TabDemoActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            TheEverythingAndroidTheme {
+            TabDemoTheme {
                 TabDemoActivityNavGraph(
                     onFinish = { finish() },
                     navController = rememberNavController()
@@ -38,7 +38,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    TheEverythingAndroidTheme {
+    TabDemoTheme {
         Greeting("Android")
     }
 }
