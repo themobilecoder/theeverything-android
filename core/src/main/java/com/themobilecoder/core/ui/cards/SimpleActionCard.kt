@@ -1,4 +1,4 @@
-package com.themobilecoder.snackbar_demo.ui.component
+package com.themobilecoder.core.ui.cards
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -30,7 +30,7 @@ fun SimpleActionCard(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.background
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Column(
             modifier = Modifier
