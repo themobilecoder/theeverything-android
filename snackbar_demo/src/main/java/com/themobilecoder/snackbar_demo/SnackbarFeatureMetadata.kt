@@ -9,7 +9,8 @@ object SnackbarFeatureMetadata : FeatureMetadata {
         get() = FeatureMetadata.FeatureData(
             title = "Snackbar",
             description = "Simple demonstration of using snackbar",
-            destination = SNACKBAR_DEMO_ROUTE
+            destination = SNACKBAR_DEMO_ROUTE,
+            tags = listOf("snackbar", "flow", "shared flow"),
         )
 }
 

@@ -116,5 +116,6 @@ private fun containedInFeatureMetadata(text: String): (FeatureMetadata) -> Boole
         val trimmedText = text.trim()
         it.featureData.title.contains(trimmedText, ignoreCase = true) ||
                 it.featureData.description.contains(trimmedText, ignoreCase = true) ||
+                it.featureData.tags.any { tag -> tag.contains(trimmedText, ignoreCase = true) } ||
                 trimmedText.isBlank()
     }

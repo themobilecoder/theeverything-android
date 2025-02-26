@@ -8,7 +8,8 @@ object TabFeatureMetaData : FeatureMetadata {
         get() = FeatureMetadata.FeatureData(
             title = "Horizontal Pager and Tabs",
             description = "Demonstration of using Tabs in Compose",
-            destination = TAB_DEMO_ROUTE
+            destination = TAB_DEMO_ROUTE,
+            tags = listOf("tabs", "pager", "horizontal pager", "tab", "tab row", "row"),
         )
 }
 
