@@ -1,7 +1,5 @@
 package com.themobilecoder.theeverythingandroid.ui.home
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -30,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.themobilecoder.core.FeatureMetadata
+import com.themobilecoder.core.ui.list.ListItemWithDescription
 import com.themobilecoder.theeverything_android.R
 import com.themobilecoder.theeverythingandroid.ui.config.Typography
 
@@ -78,29 +77,13 @@ fun HomeScreen(
             ) {
                 items(filteredDestinations.size) { index ->
                     val featureData = filteredDestinations[index].featureData
-                    Box(
-                        Modifier
-                            .fillMaxSize()
-                            .clickable {
-                                homeScreenViewModel.navigateToFeature(featureData.destination)
-                            }
-                    ) {
-                        Column(
-                            Modifier.padding(horizontal = 24.dp)
-                        ) {
-                            Text(
-                                modifier = Modifier.padding(vertical = 8.dp),
-                                text = featureData.title,
-                                style = Typography.titleMedium
-                            )
-                            Text(
-                                modifier = Modifier.padding(bottom = 4.dp),
-                                text = featureData.description,
-                                style = Typography.bodyMedium
-                            )
-                            Spacer(Modifier.height(12.dp))
+                    ListItemWithDescription(
+                        title = featureData.title,
+                        description = featureData.description,
+                        onClick = {
+                            homeScreenViewModel.navigateToFeature(featureData.destination)
                         }
-                    }
+                    )
                 }
             }
 
