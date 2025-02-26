@@ -7,7 +7,9 @@ import androidx.navigation.activity
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.themobilecoder.images_demo.ImagesDemoMetadata.ImagesDemoDestination.IMAGES_DEMO_ROUTE
-import com.themobilecoder.images_demo.ui.ImagesDemoScreen
+import com.themobilecoder.images_demo.ui.screens.ImagesDemoListScreen
+import com.themobilecoder.images_demo.ui.screens.local.ImagesDemoLocalScreen
+import com.themobilecoder.images_demo.ui.screens.network.ImagesDemoNetworkScreen
 
 
 fun NavGraphBuilder.imagesDemoActivityEntryPoint() {
@@ -26,8 +28,19 @@ fun ImagesDemoActivityNavGraph(
         startDestination = "/"
     ) {
         composable("/") {
-            ImagesDemoScreen(
+            ImagesDemoListScreen(
+                navController = navController,
                 onBackButtonPressed = onFinish
+            )
+        }
+        composable("network") {
+            ImagesDemoNetworkScreen(
+                navController = navController,
+            )
+        }
+        composable("local") {
+            ImagesDemoLocalScreen(
+                navController = navController,
             )
         }
     }
