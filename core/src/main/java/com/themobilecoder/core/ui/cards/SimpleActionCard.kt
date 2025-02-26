@@ -39,10 +39,13 @@ fun SimpleActionCard(
         ) {
             Text(
                 title,
-                style = MaterialTheme.typography.headlineSmall
+                style = MaterialTheme.typography.titleLarge
             )
             Spacer(Modifier.height(8.dp))
-            Text(description)
+            Text(
+                description,
+                style = MaterialTheme.typography.bodyMedium
+            )
             Spacer(Modifier.height(18.dp))
             FilledTonalButton(
                 modifier = Modifier.align(Alignment.End),
@@ -51,7 +54,11 @@ fun SimpleActionCard(
                     containerColor = MaterialTheme.colorScheme.primary
                 )
             ) {
-                Text(actionButtonText)
+                Text(
+                    actionButtonText,
+                    style = MaterialTheme.typography.bodyMedium
+
+                )
             }
         }
     }

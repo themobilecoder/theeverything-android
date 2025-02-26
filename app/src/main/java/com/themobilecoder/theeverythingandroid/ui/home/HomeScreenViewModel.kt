@@ -1,34 +1,38 @@
 package com.themobilecoder.theeverythingandroid.ui.home
 
 import androidx.lifecycle.ViewModel
-import com.themobilecoder.core.FeatureMetadata
-import com.themobilecoder.images_demo.ImagesDemoMetadata
-import com.themobilecoder.snackbar_demo.SnackbarFeatureMetadata
-import com.themobilecoder.tab_demo.TabFeatureMetadata
+import androidx.lifecycle.viewModelScope
+import com.themobilecoder.theeverythingandroid.data.Feature
+import com.themobilecoder.theeverythingandroid.data.FeaturesRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeScreenViewModel @Inject constructor() : ViewModel() {
+class HomeScreenViewModel @Inject constructor(
+    featuresRepo: FeaturesRepo,
+) : ViewModel() {
 
     private val _destinationState = MutableSharedFlow<String>(
         extraBufferCapacity = 1
     )
     val destinationState: SharedFlow<String> = _destinationState
 
-    private val _uiState = MutableStateFlow(
-        HomeScreenUiState(
-            destinations = listOf(
-                SnackbarFeatureMetadata,
-                TabFeatureMetadata,
-                ImagesDemoMetadata
-            )
+    private val _uiState = featuresRepo
+        .featuresFlow
+        .map { HomeScreenUiState(it) }
+        .stateIn(
+            started = SharingStarted.Lazily,
+            initialValue = HomeScreenUiState(emptyList()),
+            scope = viewModelScope
         )
-    )
+
+
     val uiState: StateFlow<HomeScreenUiState> = _uiState
 
     fun navigateToFeature(destinationRoute: String) {
@@ -36,6 +40,6 @@ class HomeScreenViewModel @Inject constructor() : ViewModel() {
     }
 
     data class HomeScreenUiState(
-        val destinations: List<FeatureMetadata>
+        val destinations: List<Feature>,
     )
 }
