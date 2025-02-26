@@ -15,8 +15,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.themobilecoder.core.ui.BasicScaffoldWithTopBar
 import com.themobilecoder.tab_demo.screen.tabs.ScreenOne
 import com.themobilecoder.tab_demo.screen.tabs.ScreenThree
@@ -24,10 +22,12 @@ import com.themobilecoder.tab_demo.screen.tabs.ScreenTwo
 import kotlinx.coroutines.launch
 
 @Composable
-fun TabFeatureDemoScreen(navController: NavHostController) {
+fun TabFeatureDemoScreen(
+    onBackButtonPressed: () -> Unit,
+) {
     BasicScaffoldWithTopBar(
         title = "Tabs Demo",
-        onBackButtonPressed = { navController.navigateUp() },
+        onBackButtonPressed = onBackButtonPressed,
     ) { paddingValues ->
         var tabIndex by remember { mutableIntStateOf(0) }
         val pagerState = rememberPagerState(
@@ -88,5 +88,7 @@ fun TabFeatureDemoScreen(navController: NavHostController) {
 @Preview
 @Composable
 private fun TabFeatureDemoScreenPreview() {
-    TabFeatureDemoScreen(rememberNavController())
+    TabFeatureDemoScreen(
+        onBackButtonPressed = {},
+    )
 }
