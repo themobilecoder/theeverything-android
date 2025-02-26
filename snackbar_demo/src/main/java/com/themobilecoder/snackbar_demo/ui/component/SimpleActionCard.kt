@@ -1,4 +1,4 @@
-package com.themobilecoder.snackbar_demo.screen
+package com.themobilecoder.snackbar_demo.ui.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

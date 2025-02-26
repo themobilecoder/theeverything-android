@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material3.Surface
 import androidx.navigation.compose.rememberNavController
 import com.themobilecoder.theeverythingandroid.ui.config.TheEverythingAndroidTheme
-import com.themobilecoder.theeverythingandroid.ui.navigation.NavHostMain
+import com.themobilecoder.theeverythingandroid.ui.navigation.MainNavGraph
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
             val navController = rememberNavController()
             TheEverythingAndroidTheme {
                 Surface {
-                    NavHostMain(navController = navController)
+                    MainNavGraph(navController = navController)
                 }
             }
         }

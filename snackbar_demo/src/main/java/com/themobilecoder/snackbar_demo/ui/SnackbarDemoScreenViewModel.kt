@@ -1,4 +1,4 @@
-package com.themobilecoder.snackbar_demo.screen
+package com.themobilecoder.snackbar_demo.ui
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.themobilecoder.snackbar_demo.screen
+package com.themobilecoder.snackbar_demo.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -35,6 +35,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.themobilecoder.snackbar_demo.ui.component.SimpleActionCard
 import kotlinx.coroutines.launch
 
 @Composable

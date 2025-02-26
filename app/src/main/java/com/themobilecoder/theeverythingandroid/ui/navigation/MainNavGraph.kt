@@ -4,13 +4,13 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.themobilecoder.snackbar_demo.navigation.navigationHostSnackbarDemo
-import com.themobilecoder.tab_demo.navigation.navigationHostTabDemo
+import com.themobilecoder.snackbar_demo.ui.snackbarDemoActivityEntryPoint
+import com.themobilecoder.tab_demo.navigation.navGraphTabDemo
 import com.themobilecoder.theeverythingandroid.ui.home.HomeScreen
 
 @Composable
-fun NavHostMain(
-    navController: NavHostController
+fun MainNavGraph(
+    navController: NavHostController,
 ) {
     NavHost(
         navController = navController,
@@ -19,8 +19,8 @@ fun NavHostMain(
         composable(HOME) {
             HomeScreen(navController)
         }
-        navigationHostSnackbarDemo(navController)
-        navigationHostTabDemo(navController)
+        snackbarDemoActivityEntryPoint()
+        navGraphTabDemo(navController)
     }
 }
 
