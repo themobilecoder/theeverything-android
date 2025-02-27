@@ -5,7 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
-import com.themobilecoder.images_demo.ui.theme.ImagesDemoTheme
+import com.themobilecoder.images_demo.internal.ImagesDemoNavGraph
+import com.themobilecoder.images_demo.internal.ui.theme.ImagesDemoTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,7 +17,7 @@ class ImagesDemoActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
             ImagesDemoTheme {
-                ImagesDemoActivityNavGraph(
+                ImagesDemoNavGraph(
                     navController = navController,
                     onFinish = { finish() }
                 )

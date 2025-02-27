@@ -22,6 +22,7 @@ fun BasicScaffoldWithTopBar(
     modifier: Modifier = Modifier,
     topBar: @Composable (() -> Unit)? = null,
     snackbarHost: @Composable (() -> Unit) = { },
+    navigationIcon: @Composable (() -> Unit)? = null,
     title: String = "",
     onBackButtonPressed: () -> Unit = {},
     isBackButtonEnabled: Boolean = true,
@@ -47,7 +48,7 @@ fun BasicScaffoldWithTopBar(
                         IconButton(
                             onClick = onBackButtonPressed
                         ) {
-                            Icon(
+                            navigationIcon ?: Icon(
                                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                                 contentDescription = "Navigate up button"
                             )

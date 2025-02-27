@@ -45,6 +45,10 @@ dependencies {
     implementation(libs.bundles.androidx.compose)
     implementation(project(":core"))
 
+    //Coil
+    implementation(libs.coil)
+    implementation(libs.coil.compose)
+
     testImplementation(libs.junit.junit)
     androidTestImplementation(libs.bundles.androidx.ui.test)
 

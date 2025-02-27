@@ -1,4 +1,4 @@
-package com.themobilecoder.images_demo.ui.theme
+package com.themobilecoder.images_demo.internal.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

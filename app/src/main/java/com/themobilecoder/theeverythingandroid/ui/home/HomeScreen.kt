@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -88,6 +89,14 @@ fun HomeScreen(
                             homeScreenViewModel.navigateToFeature(featureData.destination)
                         }
                     )
+                    if (index < filteredDestinations.lastIndex) {
+                        HorizontalDivider(
+                            thickness = 1.dp,
+                            color = androidx.compose.material3.MaterialTheme.colorScheme.outline.copy(
+                                alpha = 0.1f
+                            )
+                        )
+                    }
                 }
             }
 

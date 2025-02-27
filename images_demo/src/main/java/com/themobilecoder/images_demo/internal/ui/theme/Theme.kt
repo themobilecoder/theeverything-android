@@ -1,4 +1,4 @@
-package com.themobilecoder.images_demo.ui.theme
+package com.themobilecoder.images_demo.internal.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -33,7 +33,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun ImagesDemoTheme(
+internal fun ImagesDemoTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
