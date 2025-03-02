@@ -15,6 +15,7 @@ junit = "4.13.2"
 appcompat = "1.7.0"
 material = "1.12.0"
 kotlin-compiler-extension = "1.5.0"
+kotlin-coroutines-test = "1.9.0"
 android-test-ext-junit = "1.2.1"
 androidTestEspressoCore = "3.6.1"
 androidComposeUiTestJunit4 = "1.7.8"
@@ -43,6 +44,7 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+kotlin-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlin-coroutines-test" }
 
 [bundles]
 androidx-core = ["androidx-core-core-ktx", "androidx-lifecycle-lifecycle-runtime-ktx"]

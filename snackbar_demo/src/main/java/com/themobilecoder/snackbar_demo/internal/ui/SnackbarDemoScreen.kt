@@ -1,4 +1,4 @@
-package com.themobilecoder.snackbar_demo.ui
+package com.themobilecoder.snackbar_demo.internal.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -120,7 +120,7 @@ internal fun SnackbarDemoScreen(
     }
 }
 
-enum class SnackbarType {
+internal enum class SnackbarType {
     STANDARD_SNACKBAR,
     SNACKBAR_WITH_BUTTON,
 }

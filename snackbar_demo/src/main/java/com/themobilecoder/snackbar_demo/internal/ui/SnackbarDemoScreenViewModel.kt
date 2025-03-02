@@ -1,4 +1,4 @@
-package com.themobilecoder.snackbar_demo.ui
+package com.themobilecoder.snackbar_demo.internal.ui
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class SnackbarDemoScreenViewModel @Inject constructor(): ViewModel() {
+internal class SnackbarDemoScreenViewModel @Inject constructor(): ViewModel() {
 
     private val _snackbarSharedFlow = MutableSharedFlow<SnackbarType>(extraBufferCapacity = 1)
     val snackbarSharedFlow: SharedFlow<SnackbarType> = _snackbarSharedFlow

@@ -1,11 +1,12 @@
-package com.themobilecoder.snackbar_demo.ui
+package com.themobilecoder.snackbar_demo
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
-import com.themobilecoder.snackbar_demo.ui.theme.SnackbarDemoTheme
+import com.themobilecoder.snackbar_demo.internal.SnackbarDemoActivityNavGraph
+import com.themobilecoder.snackbar_demo.internal.ui.theme.SnackbarDemoTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

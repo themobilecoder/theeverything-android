@@ -1,8 +1,9 @@
 package com.themobilecoder.snackbar_demo
 
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.activity
 import com.themobilecoder.core.FeatureMetadata
 import com.themobilecoder.snackbar_demo.SnackbarDemoDestination.SNACKBAR_DEMO_ROUTE
-
 
 object SnackbarFeatureMetadata : FeatureMetadata {
     override val featureData: FeatureMetadata.FeatureData
@@ -14,7 +15,11 @@ object SnackbarFeatureMetadata : FeatureMetadata {
         )
 }
 
-internal const val SNACKBAR_DEMO_HOME = "/"
+fun NavGraphBuilder.snackbarDemoActivityEntryPoint() {
+    activity(route = SNACKBAR_DEMO_ROUTE) {
+        activityClass = SnackbarDemoActivity::class
+    }
+}
 
 internal object SnackbarDemoDestination {
     const val SNACKBAR_DEMO_ROUTE = "snackbarDemo"

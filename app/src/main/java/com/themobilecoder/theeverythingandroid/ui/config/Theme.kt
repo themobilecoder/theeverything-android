@@ -95,7 +95,7 @@ fun TheEverythingAndroidTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = com.themobilecoder.snackbar_demo.ui.theme.Typography,
+        typography = Typography,
         content = content
     )
 }

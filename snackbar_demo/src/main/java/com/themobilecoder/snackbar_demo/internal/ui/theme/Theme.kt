@@ -1,4 +1,4 @@
-package com.themobilecoder.snackbar_demo.ui.theme
+package com.themobilecoder.snackbar_demo.internal.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -24,7 +24,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun SnackbarDemoTheme(
+internal fun SnackbarDemoTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
