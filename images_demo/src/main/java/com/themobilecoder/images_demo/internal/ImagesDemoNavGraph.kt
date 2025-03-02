@@ -2,8 +2,8 @@ package com.themobilecoder.images_demo.internal
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.themobilecoder.core.navigation.NavHostWithSlideTransition
 import com.themobilecoder.images_demo.internal.ui.screens.ImagesDemoListScreen
 import com.themobilecoder.images_demo.internal.ui.screens.imagepicker.ImagePickerScreen
 import com.themobilecoder.images_demo.internal.ui.screens.listdetail.AnimatedTransitionGridListScreen
@@ -24,7 +24,7 @@ internal fun ImagesDemoNavGraph(
     onFinish: () -> Unit,
     navController: NavHostController,
 ) {
-    NavHost(
+    NavHostWithSlideTransition(
         navController = navController,
         startDestination = ImagesDemoDestinations.HOME,
     ) {
