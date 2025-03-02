@@ -30,32 +30,39 @@ internal fun ImagesDemoListScreen(
             ) {
                 navController.navigate(ImagesDemoDestinations.LOCAL)
             }
-            HorizontalDivider(
-                thickness = 1.dp,
-                color = colorScheme.outline.copy(
-                    alpha = 0.1f
-                )
-            )
+            Divider()
             ListItemWithDescription(
                 title = "Network using Coil",
                 description = "Fetch an image from network",
             ) {
                 navController.navigate(ImagesDemoDestinations.NETWORK)
             }
-            HorizontalDivider(
-                thickness = 1.dp,
-                color = colorScheme.outline.copy(
-                    alpha = 0.1f
-                )
-            )
+            Divider()
             ListItemWithDescription(
                 title = "Grid Images with preview using Coil",
                 description = "Fetch multiple images (1025) from network",
             ) {
                 navController.navigate(ImagesDemoDestinations.GRID)
             }
+            Divider()
+            ListItemWithDescription(
+                title = "Image picker",
+                description = "Pick an image from local device gallery",
+            ) {
+                navController.navigate(ImagesDemoDestinations.IMAGE_PICKER)
+            }
         }
     }
+}
+
+@Composable
+private fun Divider() {
+    HorizontalDivider(
+        thickness = 1.dp,
+        color = colorScheme.outline.copy(
+            alpha = 0.1f
+        )
+    )
 }
 
 @Preview
