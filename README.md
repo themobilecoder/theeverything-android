@@ -11,3 +11,4 @@ The Everything - Android is an Android playground designed to experiment with va
 ## Requirements
 
 - JDK 17
+- Gradle 8.9 and above
